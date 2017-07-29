@@ -1,0 +1,17 @@
+%h2= @page_title
+%table
+  %thead
+    %tr
+      %th Scientific Name
+      %th Common Name
+      %th Family Name
+      %th Kingdom Name
+  %tbody
+    - @animals.each do |animal|
+      - next if animal.scientific_name.start_with?('(')
+      %tr
+        %td
+          %a{href: animal.path}= animal.scientific_name
+        %td= animal.common_name
+        %td= animal.family_name
+        %td= animal.kingdom_name

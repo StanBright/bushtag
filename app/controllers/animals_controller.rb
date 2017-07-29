@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
   def show
-    @animal = Animal.where("common_name = ? OR scientific_name = ?", params[:id], params[:id]).first
+    name = params[:id].gsub('-', ' ')
+    @animal = Animal.where("common_name = ? OR scientific_name = ?", name, name).first
     unless @animal
       flash[:notice] = "Sorry, we couldn't find that animal..."
       redirect_to root_path and return
