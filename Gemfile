@@ -31,16 +31,18 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # A faster memcached client?
-gem 'dalli'
+# gem 'dalli'
 gem 'nokogiri'
 # gem 'twitter'
 # gem 'scenic'
-gem 'bugsnag'
-gem 'ahoy_email'
+# gem 'bugsnag'
+# gem 'ahoy_email'
 # Making HTML emails comfortable for the Rails rockstars
-gem 'roadie-rails', '~> 1.0'
-gem 'aasm'
+# gem 'roadie-rails', '~> 1.0'
+# gem 'aasm'
 gem 'kaminari'
 gem 'haml'
 gem 'awesome_print'
@@ -82,23 +84,23 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'guard' #, '2.13.0' # NOTE: this is necessary in newer versions of guard-minitest
-  gem 'guard-minitest', require: false
-  gem 'guard-rspec', require: false
-  gem 'guard-livereload', require: false
+  # gem 'guard' #, '2.13.0' # NOTE: this is necessary in newer versions of guard-minitest
+  # gem 'guard-minitest', require: false
+  # gem 'guard-rspec', require: false
+  # gem 'guard-livereload', require: false
 
   # Use Capistrano for deployment
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-yarn'
-  gem 'capistrano-rvm'
-  gem 'capistrano-passenger'
-  gem 'capistrano-inspeqtor', require: false
+  # gem 'capistrano'
+  # gem 'capistrano-rails'
+  # gem 'capistrano-yarn'
+  # gem 'capistrano-rvm'
+  # gem 'capistrano-passenger'
+  # gem 'capistrano-inspeqtor', require: false
 end
 
 group :test do
-  gem 'vcr'
-  gem 'webmock' #, '~> 2.3.2'
+  # gem 'vcr'
+  # gem 'webmock' #, '~> 2.3.2'
   # adds support for "assigns(:name)" and other test helpers
   # gem 'rails-controller-testing'
 end
