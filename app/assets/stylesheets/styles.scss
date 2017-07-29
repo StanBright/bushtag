@@ -7,6 +7,9 @@ $yellow: #FFFF66;
 $purple: #99a7ee;
 $font-size-large: 1.3rem;
 $red: red;
+$main-color: rgb(111, 192, 160);
+$font-family-title: 'Yeseva One', cursive;
+$font-family-body: Avenir Next, arial;
 
 .cell-centered {
   margin-right: auto;
@@ -86,10 +89,38 @@ body.focus {
 }
 
 .top-bar {
-  background-color: $yellow;
+  background-color: $main-color;
 
   ul {
-    background-color: $yellow;
+    background-color: $main-color;
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+
+  a {
+    line-height: 60px;
+    color: $black;
+    font-family: $font-family-title;
+  }
+  .top-bar-left {
+    position: relative;
+  }
+  .logo {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: -50px;
+    img {
+      height: 60px;
+    }
+    span {
+      position: absolute;
+      font-size: 12px;
+      line-height: 12px;
+      top: 75px;
+      font-family: $font-family-body;
+      font-weight: normal;
+    }
   }
 }
 
@@ -100,9 +131,15 @@ body.focus {
 footer {
   background-color: $black;
   color: $white;
+  font-size: 12px;
+
+  .cell {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 
   a {
-    color: $yellow;
+    color: $main-color;
     &:hover {
       color: $purple;
     }
