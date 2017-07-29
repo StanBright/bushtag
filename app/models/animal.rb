@@ -1,4 +1,12 @@
 class Animal < ApplicationRecord
+  def path
+    "/animals/#{scientific_name.gsub(' ', '-')}"
+  end
+
+  def name_to_show
+    common_name.presence || scientific_name
+  end
+
   def map_point
     {
       name: scientific_name,

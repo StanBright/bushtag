@@ -1,6 +1,13 @@
 class AnimalsController < ApplicationController
   def show
-    @name = params[:id]
+    name = params[:id].gsub('-', ' ')
+    @animal = Animal.where("common_name = ? OR scientific_name = ?", name, name).first
+    unless @animal
+      flash[:notice] = "Sorry, we couldn't find that animal..."
+      redirect_to root_path and return
+    end
+
+    @name = @animal.scientific_name
 
     @animals_json = Animal.
       select(:scientific_name, :latitude_GDA94, :longitude_GDA94).
@@ -9,6 +16,6 @@ class AnimalsController < ApplicationController
       map { |a| a.map_point }.
       to_json
 
-    @page_title = @name.capitalize
+    @page_title = @name
   end
 end

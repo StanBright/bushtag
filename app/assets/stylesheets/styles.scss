@@ -3,10 +3,11 @@
 $light-gray: #F7F7F7;
 $white: white;
 $black: black;
-$yellow: #FFFF66;
+$yellow: rgb(243, 216, 129);
+$gold: $yellow;
 $purple: #99a7ee;
 $font-size-large: 1.3rem;
-$red: red;
+$red: #F26C4F;
 $main-color: rgb(111, 192, 160);
 $font-family-title: 'Yeseva One', cursive;
 $font-family-body: Avenir Next, arial;
@@ -62,6 +63,10 @@ body.focus {
   }
 }
 
+.section-title {
+  font-family: $font-family-title;
+  color: $red;
+}
 .field_with_errors {
   border: 1px solid $red;
   margin-bottom: 1rem;
