@@ -12,7 +12,9 @@ function startClustering(map, ui, getBubbleContent, data) {
     }
   });
   
-  clusteredDataProvider.addEventListener('tap', onMarkerClick);
+  clusteredDataProvider.addEventListener('tap', function(e){
+    onMarkerClick(e, map, ui);
+  });
 
   // Create a layer tha will consume objects from our clustering provider
   var clusteringLayer = new H.map.layer.ObjectLayer(clusteredDataProvider);
@@ -21,7 +23,7 @@ function startClustering(map, ui, getBubbleContent, data) {
   map.addLayer(clusteringLayer);
 }
 
-function onMarkerClick(e) {
+function onMarkerClick(e, map, ui) {
   var position = e.target.getPosition(),
     dataK = e.target.getData(),
     bubbleContent = getBubbleContent(dataK),

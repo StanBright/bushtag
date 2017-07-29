@@ -132,8 +132,26 @@ body.focus {
   }
 }
 
-.search-home {
-  display: inline-block;
+.H_ib_body {
+  position: relative;
+  padding-right: 0px !important;
+
+  .H_ib_close {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .bubble {
+    font-size: 14px;
+    p {
+      margin-bottom: 3px;
+      padding-right: 10px;
+    }
+  }
+}
+
+.image-show {
+  width: 100%;
 }
 
 footer {

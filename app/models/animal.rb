@@ -1,4 +1,21 @@
 class Animal < ApplicationRecord
+  JSON_PATH = "#{Rails.root}/db/site_index.json"
+
+  class << self
+    def export_json
+      json = select(:scientific_name, :latitude_GDA94, :longitude_GDA94, :image_url).
+        all.
+        map { |a| a.map_point }.
+        to_json
+
+      File.write(JSON_PATH, json)
+    end
+
+    def load_json
+      File.read(JSON_PATH)
+    end
+  end
+
   def path
     "/animals/#{scientific_name.gsub(' ', '-')}"
   end
@@ -13,7 +30,7 @@ class Animal < ApplicationRecord
       latitude: latitude_GDA94,
       longitude: longitude_GDA94,
       path: path,
-      fullurl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/11-09-fotofluege-cux-allg-25a.jpg/1200px-11-09-fotofluege-cux-allg-25a.jpg',
+      fullurl: image_url,
     }
   end
 end
