@@ -5,6 +5,6 @@ class DiscoverController < ApplicationController
       select(:scientific_name, :common_name, :family_name, :kingdom_name).
       all
 
-    @page_title = "Browse all endangered animals..."
+    @page_title = "Browse all our furry friends..."
   end
 end
