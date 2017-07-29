@@ -10,7 +10,7 @@ class AnimalsController < ApplicationController
     @name = @animal.scientific_name
 
     @animals_json = Animal.
-      select(:scientific_name, :latitude_GDA94, :longitude_GDA94).
+      where(scientific_name: name).
       limit(500).
       all.
       map { |a| a.map_point }.
