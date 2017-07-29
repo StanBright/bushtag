@@ -1,0 +1,9 @@
+- if flash[:error] || flash[:notice]
+  - if flash[:error]
+    .flash-notice.callout.alert{data: {closable: true}}
+      %a.close-button{data: {closable: true}} &times;
+      = flash[:error].html_safe
+  - else
+    .flash-notice.callout.success{data: {closable: true}}
+      %a.close-button{data: {closable: true}} &times;
+      = flash[:notice].html_safe

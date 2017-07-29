@@ -1,0 +1,36 @@
+!!!
+%html
+  = render 'layouts/head'
+
+  %body
+    .top-bar
+      .top-bar-left
+        %ul.menu
+          %li
+            %a.logo{href: '/'}= SITE_TITLE
+          %li
+            %a.logo{href: '/'} About
+          %li
+            %a.logo{href: '/'} Discover
+          %li
+            %a.logo{href: '/'} Learn
+          %li
+            %a.logo{href: '/'} Tag
+
+    .main-container-wrapper
+      .grid-container.grid-container-padded.main-container
+        .grid-x.grid-padding-x.grid-padding-y
+          .cell
+            = render 'layouts/notices'
+            = yield
+
+    %footer
+      .grid-container.grid-container-padded
+        .grid-x.grid-padding-x.grid-padding-y
+          .cell
+            This is the footer
+        .grid-x.grid-padding-x.grid-padding-y
+          .cell
+            %a{href: '/'} A link in the footer
+            &nbsp;|&nbsp;
+            %a{href: '/'} Second One

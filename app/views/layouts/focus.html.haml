@@ -1,0 +1,22 @@
+!!!
+%html
+  = render 'layouts/head'
+
+  %body.focus
+    .heading
+      .grid-container
+        .grid-x
+          .cell
+            %h1= @page_title
+            - if @sub_title
+              %p= @sub_title
+
+            %a.close{href: return_to_path}
+              %i.fa.fa-window-close-o
+
+  .focus-main-wrapper
+    .grid-container
+      .grid-x.grid-padding-x.grid-padding-y
+        .cell.small-11.medium-10.large-8.cell-centered
+          = render 'layouts/notices'
+          = yield
