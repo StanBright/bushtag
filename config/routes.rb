@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :animals
   get '/discover', to: 'discover#index'
   get '/about', to: 'site#about'
+  get '/tag', to: 'site#tag'
   get '/animals/:id', to: 'animals#show', constraints: {id: /.+/}
   root 'site#index'
 end
