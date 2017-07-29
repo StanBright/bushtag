@@ -7,4 +7,8 @@ class SiteController < ApplicationController
       map { |a| a.map_point }.
       to_json
   end
+
+  def about
+    @page_title = "About #{SITE_TITLE}"
+  end
 end
