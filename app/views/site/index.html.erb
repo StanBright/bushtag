@@ -1,6 +1,6 @@
 <div class="text-center">
   <div class='focus-box-home'>
-      <div id="map" style="width: 100%; height: 550px; background: grey" />
+      <div id="map" style="width: 100%; height: 550px; background: grey; background-image: url('https://images.template.net/wp-content/uploads/2014/12/Australia-Day-Illustrations-KOALA.jpg')" />
         <script  type="text/javascript" charset="UTF-8" >
         /**
        * Display clustered markers on a map
@@ -27,7 +27,7 @@
             minWeight: 2
           }
         });
-        
+
         clusteredDataProvider.addEventListener('tap', onMarkerClick);
 
         // Create a layer tha will consume objects from our clustering provider
@@ -37,7 +37,7 @@
         // we need to add our layer to the map
         map.addLayer(clusteringLayer);
       }
-      
+
       function getBubbleContent(data) {
         var item = data.a.data;
         return "<div class='bubble'><p>" + item.name + "</p><a href='" + item.path + "'><img style='height: 100px;' src='" + item.fullurl + "' /></a></div>";
