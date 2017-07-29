@@ -44,8 +44,8 @@
 
       // Step 1: initialize communication with the platform
       var platform = new H.service.Platform({
-        app_id: 'app',
-        app_code: 'code',
+        app_id: "<%= ENV['HERE_API_ID'] %>",
+        app_code: "<%= ENV['HERE_API_CODE'] %>",
         useHTTPS: true,
         useCIT: true
       });
@@ -67,15 +67,16 @@
       // Step 4: create the default UI component, for displaying bubbles
       var ui = H.ui.UI.createDefault(map, defaultLayers);
 
-      var data = [{
-        "name":"Point1",
-        "latitude": 31.2532,
-        "longitude": 146.921
-      }, {
-        "name":"Point2",
-        "latitude": 33.8688,
-        "longitude": 151.2093
-      }]
+      // var data = [{
+      //   "name":"Point1",
+      //   "latitude": 31.2532,
+      //   "longitude": 146.921
+      // }, {
+      //   "name":"Point2",
+      //   "latitude": 33.8688,
+      //   "longitude": 151.2093
+      // }]
+      var data = <%= @animals_json.html_safe %>;
 
       startClustering(map, data);
     </script>
