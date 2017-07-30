@@ -1,14 +1,33 @@
 <div class="text-center">
   <div class='focus-box-home'>
+    <div class='grid-x grid-margin-x map-menu' style="margin-top: -10px; margin-bottom: 5px;">
+      <div class='cell small-6 text-left'>
+        <a href="/" class="<% if params[:endangered].blank? %>active<% end %>">All Species</a>
+        &nbsp;
+        <a href="/?endangered=t" class="<% if params[:endangered] == 't' %>active<% end %>">Endangered Species</a>
+      </div>
+      <div class='cell small-6 text-right'>
+        <% if params[:devareas] == 'show' %>
+          <a href="/?endangered=<%= params[:endangered].presence || 'f' %>">Hide residential areas</a>
+        <% else %>
+          <a href="/?endangered=<%= params[:endangered].presence || 'f' %>&devareas=show">Show future residential areas</a>
+        <% end %>
+      </div>
+    </div>
 
     <div id="map" style="width: 100%; height: 550px; background: grey; background-image: url('https://images.template.net/wp-content/uploads/2014/12/Australia-Day-Illustrations-KOALA.jpg')" />
     <script  type="text/javascript" charset="UTF-8" >
-      
+
     var app_id = "<%= ENV['HERE_API_ID'] %>";
     var app_code = "<%= ENV['HERE_API_CODE'] %>";
     var data = <%= @animals_json.html_safe %>;
+    <% if @areas_json.present? %>
+      var polyData = <%= @areas_json.html_safe %>;
+    <% else %>
+      var polyData = null;
+    <% end %>
     initMate(data, app_id, app_code)
-      
+
     </script>
   </div>
 </div>

@@ -2,7 +2,7 @@ class Animal < ApplicationRecord
   JSON_PATH = "#{Rails.root}/db/site_index"
 
   class << self
-    def path(kind)
+    def json_path(kind)
       path = JSON_PATH
       if kind.present?
         path += "_#{kind}.json"
@@ -22,11 +22,11 @@ class Animal < ApplicationRecord
 
       json = query.all.map { |a| a.map_point }.to_json
 
-      File.write(path(kind), json)
+      File.write(json_path(kind), json)
     end
 
     def load_json(kind = nil)
-      File.read(path(kind))
+      File.read(json_path(kind))
     end
   end
 

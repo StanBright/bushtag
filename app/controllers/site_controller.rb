@@ -1,12 +1,15 @@
 class SiteController < ApplicationController
   def index
-    # @animals_json = Animal.
-    #   select(:scientific_name, :latitude_GDA94, :longitude_GDA94, :image_url).
-    #   # limit(50000).
-    #   all.
-    #   map { |a| a.map_point }.
-    #   to_json
-    @animals_json = Animal.load_json
+    if params[:endangered] == 't'
+      @animals_json = Animal.load_json(:endangered)
+    else
+      @animals_json = Animal.load_json
+    end
+
+    if params[:devareas] == 'show'
+      @areas_json = Area.all.map { |a| a.map_point }.to_json
+    end
+    @page_title = "Bushtag"
   end
 
   def about

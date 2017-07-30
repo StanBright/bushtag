@@ -84,6 +84,12 @@ body.focus {
   }
 }
 
+.map-menu {
+  a.active {
+    text-decoration: underline;
+  }
+}
+
 .help-text-errors {
   font-weight: bold;
   color: $red;

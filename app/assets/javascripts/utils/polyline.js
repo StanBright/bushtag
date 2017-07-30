@@ -1,10 +1,10 @@
 function addPolylineToMap(map, polyData) {
   var polyId = 0;
   var strip = new H.geo.Strip();
-  
-  for (var i = 0; i <= polyData.length; i++) {
+
+  for (var i = 0; i < polyData.length; i++) {
     if (polyId == polyData[i].shapeid) {
-      strip.push({
+      strip.pushPoint({
         lat: polyData[i].lat,
         lng: polyData[i].lng
       })
@@ -12,7 +12,7 @@ function addPolylineToMap(map, polyData) {
       map.addObject(new H.map.Polyline(
         strip, { style: { lineWidth: 4 }}
       ));
-      
+
       strip = new H.geo.Strip();
       polyId = polyData[i].shapeid;
     }

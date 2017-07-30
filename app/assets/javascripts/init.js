@@ -22,8 +22,10 @@ function initMate(data, app_id, app_code) {
 
   // Step 4: create the default UI component, for displaying bubbles
   var ui = H.ui.UI.createDefault(map, defaultLayers);
-  
+
 
   startClustering(map, ui, getBubbleContent, data);
-  //addPolylineToMap(map, polyData);
+  if (polyData != null) {
+    addPolylineToMap(map, polyData);
+  }
 }
