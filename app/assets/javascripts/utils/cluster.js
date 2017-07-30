@@ -49,6 +49,14 @@ function onMarkerClick(e, map, ui) {
 }
 
 function getBubbleContent(data) {
-  var item = data.a.data;
-  return "<div class='bubble'><p>" + item.name + "</p><a href='" + item.path + "'><img style='height: 100px;' src='" + item.fullurl + "' /></a></div>";
+  var markup;
+  
+  if (data.a == null) {
+    markup = "<div class='bubble'><p>There are many animals here. Zoom in and click on a single blue point</p></div>";
+  } else {
+    var item = data.a.data;
+    markup = "<div class='bubble'><p>" + item.name + "</p><a href='" + item.path + "'><img style='height: 100px;' src='" + item.fullurl + "' /></a></div>";
+  }
+
+  return markup
 }

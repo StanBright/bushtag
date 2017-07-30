@@ -12,8 +12,8 @@ function initMate(data, app_id, app_code) {
 
   // Step 2: initialize a map
   var map = new H.Map(document.getElementById('map'), defaultLayers.normal.map, {
-    center: new H.geo.Point(-32.789, 145.790),
-    zoom: 5
+    center: new H.geo.Point(-33.895678, 150.600406),
+    zoom: 10
   });
 
   // Step 3: make the map interactive
