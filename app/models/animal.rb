@@ -1,18 +1,32 @@
 class Animal < ApplicationRecord
-  JSON_PATH = "#{Rails.root}/db/site_index.json"
+  JSON_PATH = "#{Rails.root}/db/site_index"
 
   class << self
-    def export_json
-      json = select(:scientific_name, :latitude_GDA94, :longitude_GDA94, :image_url).
-        all.
-        map { |a| a.map_point }.
-        to_json
-
-      File.write(JSON_PATH, json)
+    def path(kind)
+      path = JSON_PATH
+      if kind.present?
+        path += "_#{kind}.json"
+      else
+        path += '.json'
+      end
     end
 
-    def load_json
-      File.read(JSON_PATH)
+    def export_json(kind = nil)
+      query =
+        select(:scientific_name, :latitude_GDA94, :longitude_GDA94, :image_url).
+        where("date_last like '%2016%'")
+
+      if kind == :endangered
+        query = query.where("nsw_status like '%E%' OR nsw_status like '%P%' OR nsw_status like '%V%'")
+      end
+
+      json = query.all.map { |a| a.map_point }.to_json
+
+      File.write(path(kind), json)
+    end
+
+    def load_json(kind = nil)
+      File.read(path(kind))
     end
   end
 
