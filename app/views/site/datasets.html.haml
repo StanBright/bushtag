@@ -1,0 +1,13 @@
+%h1.section-title= @page_title
+
+%h2.section-sub-title
+  %a{href: 'https://data.bionet.nsw.gov.au/'} BioNet Web Services
+
+%table
+  %thead
+    %tr
+      %th Dataset Name
+  %tbody
+    - @bionet_datasets.each do |dataset_name|
+      %tr
+        %td= dataset_name

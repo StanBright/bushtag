@@ -16,4 +16,10 @@ class SiteController < ApplicationController
   def tag
     @page_title = "Tag an animal on Instagram"
   end
+
+  def datasets
+    @bionet_datasets = Animal.group(:dataset_name).pluck(:dataset_name)
+
+    @page_title = "Used Datasets"
+  end
 end
