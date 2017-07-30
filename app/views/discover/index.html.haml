@@ -8,7 +8,7 @@
       %th Kingdom Name
   %tbody
     - @animals.each do |animal|
-      - next if animal.scientific_name.start_with?('(')
+      - next if animal.scientific_name.start_with?('(') || animal.scientific_name.start_with?('"')
       %tr
         %td
           %a{href: animal.path}= animal.scientific_name
