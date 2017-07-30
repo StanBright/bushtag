@@ -22,6 +22,7 @@ $font-family-body: Avenir Next, arial;
 
 body {
   background-color: $light-gray;
+  font-family: $font-family-body;
 
   // sticky-footer
   display: flex;
@@ -69,6 +70,10 @@ body.focus {
 .section-title {
   font-family: $font-family-title;
   color: $red;
+}
+.section-sub-title {
+  font-family: $font-family-body;
+  font-size: 24px;
 }
 .field_with_errors {
   border: 1px solid $red;
