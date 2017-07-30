@@ -1,4 +1,11 @@
-<h1 class='section-title'><%= @animal.scientific_name %>, mate!</h1>
+
+<% if @animal.common_name.present? %>
+  <h1 class='section-title'><%= @animal.common_name %></h1>
+  <h2 class='section-sub-title'><%= @animal.scientific_name %></h2>
+<% else %>
+  <h1 class='section-title'><%= @animal.scientific_name %></h1>
+<% end %>
+
 <div class='grid-x grid-margin-x'>
   <div class='cell small-12 large-5'>
     <img src="<%= @animal.image_url %>" title="<%= @animal.name_to_show %>" class="image-show"/>
@@ -129,5 +136,9 @@
 
       startClustering(map, data);
     </script>
+    <p>Showing the number of observations in 2017</p>
+    <% if @animals_json.size == 1000 %>
+      <div class='help-text'>Limited to the last one thousand</div>
+    <% end %>
   </div>
 </div>
