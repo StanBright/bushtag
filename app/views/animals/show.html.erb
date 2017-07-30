@@ -8,8 +8,9 @@
 
 <div class='grid-x grid-margin-x'>
   <div class='cell small-12 large-5'>
-    <img src="<%= @animal.image_url %>" title="<%= @animal.name_to_show %>" class="image-show"/>
-
+    <% unless @animal.image_url == 'ERROR NOT FOUND' %>
+      <img src="<%= @animal.image_url %>" title="<%= @animal.name_to_show %>" class="image-show"/>
+    <% end %>
     <br/>
     <div class='animal-info'>
       <table>
@@ -126,8 +127,8 @@
 
       // Step 2: initialize a map
       var map = new H.Map(document.getElementById('map'), defaultLayers.normal.map, {
-        center: new H.geo.Point(-32.789, 145.790),
-        zoom: 5
+        center: new H.geo.Point(-32.489897, 147.955549),
+        zoom: 6
       });
       var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
       // Step 4: create the default UI component, for displaying bubbles

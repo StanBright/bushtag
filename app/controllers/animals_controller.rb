@@ -16,7 +16,7 @@ class AnimalsController < ApplicationController
     @name = @animal.scientific_name
     animals_query = Animal.where(scientific_name: name)
 
-    @animals_json = animals_query.where("date_last like '%2017%'").limit(1000).all.map { |a| a.map_point }.to_json
+    @animals_json = animals_query.where("date_last like '%2016%'").limit(1000).all.map { |a| a.map_point }.to_json
 
     @observations = animals_query.
       order(:date_last).
