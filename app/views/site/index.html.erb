@@ -2,7 +2,7 @@
   <div class='focus-box-home'>
     <div class='grid-x grid-margin-x map-menu' style="margin-top: -10px; margin-bottom: 5px;">
       <div class='cell small-6 text-left'>
-        <a href="/" class="<% if params[:endangered].blank? %>active<% end %>">All Species</a>
+        <a href="/" class="<% if params[:endangered].blank? || params[:endangered] == 'f' %>active<% end %>">All Species</a>
         &nbsp;
         <a href="/?endangered=t" class="<% if params[:endangered] == 't' %>active<% end %>">Endangered Species</a>
       </div>
