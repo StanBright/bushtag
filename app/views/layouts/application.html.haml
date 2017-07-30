@@ -4,7 +4,7 @@
 
   %body
     .top-bar
-      .top-bar-left
+      .top-bar-left.show-for-medium
         %ul.menu
           %li
             %a.logo{href: '/'}
@@ -14,6 +14,8 @@
 
       .top-bar-right
         %ul.menu
+          %li.hide-for-medium
+            %a{href: '/'} Bushtag
           %li
             %a{href: '/about'} About
           %li

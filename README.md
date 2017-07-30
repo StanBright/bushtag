@@ -11,4 +11,4 @@ taking part of GovHack 2017 Sydney 🏄🐨🦆!
 
 ## More
 
-* [Database builder for Bushtag.tech (github)](https://github.com/gpaw789/bushtag_db)
+* [Database builder for www.bushtag.tech (github)](https://github.com/gpaw789/bushtag_db)
