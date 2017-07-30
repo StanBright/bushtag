@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/about', to: 'site#about'
   get '/tag', to: 'site#tag'
   get '/datasets', to: 'site#datasets'
+  get '/random', to: 'animals#random'
   get '/animals/:id', to: 'animals#show', constraints: {id: /.+/}
   root 'site#index'
 end

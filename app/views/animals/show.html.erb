@@ -136,5 +136,9 @@
 
       startClustering(map, data);
     </script>
+    <p>Showing the number of observations in 2017</p>
+    <% if @animals_json.size == 1000 %>
+      <div class='help-text'>Limited to the last one thousand</div>
+    <% end %>
   </div>
 </div>
