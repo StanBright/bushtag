@@ -16,25 +16,29 @@ class AnimalsController < ApplicationController
     @name = @animal.scientific_name
     animals_query = Animal.where(scientific_name: name)
 
-    @animals_json = animals_query.where("date_last like '%2016%'").limit(1000).all.map { |a| a.map_point }.to_json
-
     @observations = animals_query.
       order(:date_last).
       reduce({}) do |data, animal|
         begin
-          year = Date.parse(animal.date_last).year
+          year = animal.date_last
           unless data[year]
             data[year] = 0
           end
+          data[year] += animal.observations_count
         rescue => e
           next
         end
 
-        data[year] += animal.number_individuals.to_i.presence || 1
         data
       end
 
-    @observations = Hash[@observations.sort_by { |k, v| k.to_i }]
+
+    @observations = @observations.sort_by { |k, v| k.to_i }
+    last_year = @observations.last.first
+    @observations = Hash[@observations]
+    last_year = '16' if last_year == '17'
+
+    @animals_json = animals_query.where(date_last: last_year).limit(1000).all.map { |a| a.map_point }.to_json
 
     @page_title = @name
   end
