@@ -12,4 +12,8 @@ class SiteController < ApplicationController
   def about
     @page_title = "About #{SITE_TITLE}"
   end
+
+  def tag
+    @page_title = "Tag an animal on Instagram"
+  end
 end
