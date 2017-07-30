@@ -8,17 +8,12 @@ class AnimalsController < ApplicationController
     end
 
     @name = @animal.scientific_name
+    animals_query = Animal.where(scientific_name: name)
 
-    @animals_json = Animal.
-      where(scientific_name: name).
-      all.
-      map { |a| a.map_point }.
-      to_json
+    @animals_json = animals_query.all.map { |a| a.map_point }.to_json
 
-    @observations = Animal.
-      where(scientific_name: name).
+    @observations = animals_query.
       order(:date_last).
-      all.
       reduce({}) do |data, animal|
         begin
           year = Date.parse(animal.date_last).year
@@ -32,6 +27,8 @@ class AnimalsController < ApplicationController
         data[year] += animal.number_individuals.to_i.presence || 1
         data
       end
+
+    @observations = Hash[@observations.sort_by { |k, v| k.to_i }]
 
     @page_title = @name
   end
